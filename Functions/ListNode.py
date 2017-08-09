@@ -29,7 +29,7 @@ class LinkedList:
             while link_list.head.next is not link_list.tail:
                 link_list.head = link_list.head.next
             link_list.head.next = None
-        else:  # 正常删除,只对链表遍历一遍,时间复杂度趋近于o(1)
+        else:  # 正常删除,只对链表遍历一遍,时间复杂度趋近于o(1);另一种删除方法是使用两个指针,一个指向需要删除节点,另一个指向前一个节点,然后删除
             while link_list.head.next is not None:
                 if link_list.head.data == list_delete:  # 当找到需要删除的节点时
                     link_list.head.data = link_list.head.next.data  # 将下一个节点的值赋给当前节点
