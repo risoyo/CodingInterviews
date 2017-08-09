@@ -25,7 +25,7 @@ if __name__ == '__main__':
         link_list.append(i)
     link_list.delete_node(link_list, 48)
     if link_list.head is None:
-        print "链表已空,删除了唯一一个节点"
+        print "链表已空,删除了唯一的个节点"
     else:
         while link_list.head is not None:
             print link_list.head.data,
