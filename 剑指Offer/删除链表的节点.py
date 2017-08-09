@@ -23,11 +23,10 @@ if __name__ == '__main__':
     link_list = ListNode.LinkedList()
     for i in list_number:
         link_list.append(i)
-    link_start = link_list.head
-    delete_node(link_list, 48)
+    link_list.delete_node(link_list, 48)
     if link_list.head is None:
         print "链表已空,删除了唯一一个节点"
     else:
-        while link_start is not None:
-            print link_start.data,
-            link_start = link_start.next
+        while link_list.head is not None:
+            print link_list.head.data,
+            link_list.head = link_list.head.next
