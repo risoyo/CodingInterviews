@@ -11,4 +11,4 @@ class Solution:
 
 if __name__ == '__main__':
     bat = Solution()
-    print bat.NumberOf1(-9)
+    print bat.NumberOf1(0)
