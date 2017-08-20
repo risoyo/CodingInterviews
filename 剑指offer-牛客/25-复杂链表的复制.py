@@ -7,33 +7,6 @@ class RandomListNode:
 class Solution:
     # 返回 RandomListNode
     def Clone(self, pHead):
-        if pHead is None:
-            return
-        head = pHead
-        while head is not None:
-            node = RandomListNode(head.label)
-            node.next = head.next
-            node.random = None
-            head.next = node
-            head = node.next
-        head = pHead
-        node = head.next
-        while head is not None:
-            if head.random is not None:
-                node.random = head.random.next
-            head = node.next
-        head = pHead
-        clone_head = clone_node = head.next
-        head.next = clone_node.next
-        node = node.next
-        while node is not None:
-            clone_node.next = head.next
-            node = node.next
-            head.next = node.next
-            head = head.next
-        return clone_head
-
-    def Clone_2(self, pHead):
         # write code here
         if not pHead:
             return None
