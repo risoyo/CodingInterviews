@@ -22,6 +22,11 @@ class Solution:
             root.right = self.ConstructBinaryTreeCore(rpre, rtin)
         return root  # 返回构建好的节点
 
+    def reConstructBinaryTree(self, pre, tin):
+        if pre == 0 or tin == 0:
+            return False
+        return self.ConstructBinaryTreeCore(pre, tin)
+
     def pre_order(self, tree):  # 前序遍历二叉树
         if tree is not None:
             print tree.val,
@@ -40,10 +45,7 @@ class Solution:
             self.post_order(tree.right)
             print tree.val,
 
-    def reConstructBinaryTree(self, pre, tin):
-        if pre == 0 or tin == 0:
-            return False
-        return self.ConstructBinaryTreeCore(pre, tin)
+
 
 
 if __name__ == '__main__':
@@ -51,7 +53,8 @@ if __name__ == '__main__':
     pre = [1, 2, 4, 7, 3, 5, 6, 8]
     tin = [4, 7, 2, 1, 5, 3, 8, 6]
     tree = bat.reConstructBinaryTree(pre, tin)
-    bat.min_order(tree)
+    print tree
+    # bat.min_order(tree)
     # treelist = [tree]  # 按层次遍历二叉树,先将头结点入队
     # while len(treelist) > 0:  # 队列非空时遍历就没有完成
     #     print treelist[0].val,  # 输出队列最前端节点的值,加个','逗号后在console中输出的值就不会每个都跟着回车了

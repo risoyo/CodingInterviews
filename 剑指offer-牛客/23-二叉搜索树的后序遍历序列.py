@@ -22,4 +22,4 @@ if __name__ == '__main__':
     tree2 = [7, 4, 6, 5]
     tree3 = []
     tree4 = [1, 2, 3, 6]
-    print bat.VerifySquenceOfBST(tree4)
+    print bat.VerifySquenceOfBST(tree1)
