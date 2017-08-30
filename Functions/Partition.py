@@ -7,13 +7,16 @@ class Partition:
         if num is "" or start is None or end is None:
             return False
         self.num_complete = num
-        print self.num_complete[self.partition_core(self.num_complete, 0, len(num))]
+        count = len(self.num_complete)
+        self.partition_core(self.num_complete, 0, len(num))
         print self.num_complete
 
     def partition_core(self, num, start, end):
         if num is "" or start is None or end is None:
             return False
         index = 0
+        if len(self.num_complete) == 0:
+            self.num_complete = num
         self.num_complete[index], self.num_complete[end - 1] = self.num_complete[end - 1], self.num_complete[index]
         small = start - 1
         for index in range(start, end):
@@ -30,4 +33,4 @@ class Partition:
 if __name__ == '__main__':
     num = [3, 1, 5, 7, 2, 4, 9, 6]
     bat = Partition()
-    bat.partition(num, 0, len(num))
+    bat.partition_core(num, 0, len(num))
