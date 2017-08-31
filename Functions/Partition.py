@@ -9,7 +9,6 @@ class Partition:
         self.num_complete = num
         count = len(self.num_complete)
         self.partition_core(self.num_complete, 0, len(num))
-        print self.num_complete
 
     def partition_core(self, num, start, end):
         if num is "" or start is None or end is None:
@@ -17,16 +16,16 @@ class Partition:
         index = 0
         if len(self.num_complete) == 0:
             self.num_complete = num
-        self.num_complete[index], self.num_complete[end - 1] = self.num_complete[end - 1], self.num_complete[index]
+        self.num_complete[index], self.num_complete[end] = self.num_complete[end], self.num_complete[index]
         small = start - 1
         for index in range(start, end):
-            if self.num_complete[index] < self.num_complete[end - 1]:
+            if self.num_complete[index] < self.num_complete[end]:
                 small += 1
                 if small != index:
                     self.num_complete[index], self.num_complete[small] = self.num_complete[small], \
                                                                            self.num_complete[index]
         small += 1
-        self.num_complete[end - 1], self.num_complete[small] = self.num_complete[small], self.num_complete[end - 1]
+        self.num_complete[end], self.num_complete[small] = self.num_complete[small], self.num_complete[end]
         return small
 
 
