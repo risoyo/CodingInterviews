@@ -7,7 +7,6 @@ class Partition:
         if num is "" or start is None or end is None:
             return False
         self.num_complete = num
-        count = len(self.num_complete)
         self.partition_core(self.num_complete, 0, len(num))
 
     def partition_core(self, num, start, end):
