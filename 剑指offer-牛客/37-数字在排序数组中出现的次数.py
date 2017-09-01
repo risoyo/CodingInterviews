@@ -7,7 +7,7 @@ class Solution:
         last_k = self.get_last_k(data, k, 0, len(data) - 1)
         if first_k == -1 and last_k == -1:
             return 0
-        return last_k - first_k +1
+        return last_k - first_k + 1
 
     def get_first_k(self, data, k, start, end):
         if start > end:
@@ -44,5 +44,5 @@ class Solution:
 
 if __name__ == '__main__':
     bat = Solution()
-    num = [1,2,3,3,3,3]
+    num = [1, 2, 3, 3, 3, 3]
     print bat.GetNumberOfK(num, 3)
