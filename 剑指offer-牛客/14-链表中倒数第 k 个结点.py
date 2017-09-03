@@ -1,4 +1,8 @@
 # -*- coding:utf-8 -*-
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution:
     def FindKthToTail(self, head, k):  # 使用两个指针来指向倒数第k个节点
