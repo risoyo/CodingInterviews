@@ -7,12 +7,44 @@ class ListNode:
 
 class Solution:
     # 返回合并后列表
-    def Merge(self, pHead1, pHead2):
+    def Merge(self, pHead1, pHead2):  # 不新建链表的写法,但是效率较低
         if pHead1 is None and pHead2 is not None:  # 若pHead1空,pHead2非空,直接返回pHead2
             return pHead2
         elif pHead2 is None and pHead1 is not None:  # 若pHead2空,pHead1非空,直接返回pHead1
             return pHead1
-        elif pHead1 is None and pHead2 is  None:  # 若pHead1,pHead2都为空,返回None
+        elif pHead1 is None and pHead2 is None:  # 若pHead1,pHead2都为空,返回None
+            return None
+        link_list1 = pHead1
+        head1 = pHead1
+        head2 = pHead2
+        if pHead1.val > pHead2.val:  # 初始化头节点,将pHead1和pHead2头节点中较小的一个初始化为新链表的头节点
+            head2 = pHead2.next
+            pHead2.next = pHead1
+            pHead1 = pHead2
+            link_list1 = pHead1
+            pHead1 = pHead1.next
+            pHead2 = head2
+        pHead1_pre = pHead1
+        while pHead1 is not None and pHead2 is not None:
+            if int(pHead1.val) < int(pHead2.val):
+                pHead1_pre = pHead1
+                pHead1 = pHead1.next
+            else:
+                head2 = pHead2.next
+                pHead2.next = pHead1
+                pHead1_pre.next = pHead2
+                pHead2 = head2
+                pHead1_pre = pHead1_pre.next
+        if pHead2 is not None:
+            pHead1_pre.next = pHead2
+        return link_list1
+
+    def Merge_1(self, pHead1, pHead2):
+        if pHead1 is None and pHead2 is not None:  # 若pHead1空,pHead2非空,直接返回pHead2
+            return pHead2
+        elif pHead2 is None and pHead1 is not None:  # 若pHead2空,pHead1非空,直接返回pHead1
+            return pHead1
+        elif pHead1 is None and pHead2 is None:  # 若pHead1,pHead2都为空,返回None
             return None
         if pHead1.val < pHead2.val:  # 初始化头节点,将pHead1和pHead2头节点中较小的一个初始化为新链表的头节点
             link_list = ListNode(pHead1.val)
@@ -50,8 +82,8 @@ class Solution:
 
 if __name__ == '__main__':
     bat = Solution()
-    num = []
-    num2 = []
+    num = [1, 2, 5, 7, 9]
+    num2 = [3, 4, 7, 8, 10]
     if len(num) != 0:
         link_list1 = ListNode(num[0])
         link_head1 = link_list1
